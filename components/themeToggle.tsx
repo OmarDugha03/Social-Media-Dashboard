@@ -23,7 +23,7 @@ const themeToggle = ({}) => {
 
   return (
     <>
-      <div className="flex items-center justify-between px-4 ">
+      <div className="flex items-center justify-between px-4 lg:pb-36">
         <Switch.Group>
           <Switch.Label className="px-4 m-1 mb-3 text-lg font-bold lg:text-2xl">
             Dark Mode :
