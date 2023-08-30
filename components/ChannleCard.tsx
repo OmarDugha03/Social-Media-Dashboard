@@ -80,9 +80,19 @@ const ChannleCard = ({}) => {
             )}>
             <p>
               {item.isUp ? (
-                <Image src={upIcon} alt="arrow" className="pt-2 mr-2" />
+                <Image
+                  src={upIcon}
+                  alt="arrow"
+                  priority
+                  className="pt-2 mr-2"
+                />
               ) : (
-                <Image src={downIcon} alt="arrow" className="pt-1 mr-2 " />
+                <Image
+                  src={downIcon}
+                  alt="arrow"
+                  priority
+                  className="pt-1 mr-2 "
+                />
               )}
             </p>
             {item.progress} Today
