@@ -4,22 +4,28 @@ import { useState, useEffect } from "react";
 import { Switch } from "@headlessui/react";
 
 const themeToggle = ({}) => {
-  const [isToggle, setToggle] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  const [isToggle, setToggle] = useState(theme === "dark");
 
   function handleChange() {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+    setTheme(theme === "dark" ? "light" : "dark");
     setToggle(!isToggle);
   }
 
   useEffect(() => {
-    const data = window.localStorage.getItem("Dark");
-    //@ts-ignore
-    data === "true" ? setToggle(true) : setToggle(false);
+    const data = window.localStorage.getItem("theme");
+
+    data === "dark" && setToggle(!isToggle);
   }, []);
   useEffect(() => {
-    window.localStorage.setItem("Dark", JSON.stringify(isToggle));
-  }, [isToggle]);
+    const data = window.localStorage.getItem("theme");
+
+    data === "light" && setToggle(!isToggle);
+  }, []);
+
+  /*   useEffect(() => {
+    const data = window.localStorage.getItem("theme");
+  }, [isToggle]); */
 
   return (
     <>
